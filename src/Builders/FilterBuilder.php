@@ -169,14 +169,14 @@ class FilterBuilder extends Builder
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html Terms query
      *
      * @param string $field
-     * @param array $value
+     * @param array $values
      * @return $this
      */
-    public function whereIn($field, array $value)
+    public function whereIn($field, $values)
     {
         $this->wheres['must'][] = [
             'terms' => [
-                $field => $value,
+                $field => $values,
             ],
         ];
 
@@ -189,14 +189,14 @@ class FilterBuilder extends Builder
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html Terms query
      *
      * @param string $field
-     * @param array $value
+     * @param array $values
      * @return $this
      */
-    public function whereNotIn($field, array $value)
+    public function whereNotIn($field, $values)
     {
         $this->wheres['must_not'][] = [
             'terms' => [
-                $field => $value,
+                $field => $values,
             ],
         ];
 
